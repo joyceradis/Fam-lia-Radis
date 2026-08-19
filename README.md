@@ -1,20 +1,28 @@
 # Família Radis — Arquivo Vivo
 
-Genealogia interativa da Família Radis.
+Genealogia interativa da Família Radis: árvore, memória familiar, saúde e evidências no mesmo arquivo.
 
-## O que já funciona
+## V2
 - árvore navegável com zoom e pan;
-- ficha individual ao clicar em cada pessoa;
-- busca por nome, apelido e condição;
-- distinção visual entre informação confirmada e vínculo ainda a confirmar;
-- inclusão local de novos registros (nascimento, óbito, condições e observações);
-- exportação JSON para backup;
-- layout responsivo.
+- ficha individual editável;
+- nascimento e óbito;
+- condições e histórico de saúde;
+- fontes/documentos e memórias;
+- quatro estados de evidência: **confirmado**, **relato familiar**, **documentado**, **a investigar**;
+- busca por nome, apelido, condição ou estado;
+- inclusão rápida de pessoas;
+- backup JSON versionado e importação posterior;
+- persistência local no navegador;
+- layout responsivo para Mac e celular.
 
-## Dados
-`family-data.js` contém apenas o núcleo genealógico reconstruído até aqui. Relações antigas não confirmadas são deliberadamente mantidas como **a confirmar**, em vez de inferidas.
+## Regra de ouro dos dados
+`family-data.js` guarda o núcleo reconstruído. Relações antigas não demonstradas permanecem explicitamente **a investigar**. O sistema não completa lacunas por inferência.
 
-## Abrir
-O projeto é estático. Pode ser aberto por qualquer servidor HTTP simples ou publicado por GitHub Pages.
+## Backup
+Use **Backup** para baixar o snapshot completo. Em outro navegador/dispositivo, use **Importar** para restaurá-lo. O navegador mantém alterações localmente até a exportação.
 
-Para validar as relações centrais, abra `tests.html` pelo mesmo servidor.
+## Desenvolvimento
+A aplicação é estática (HTML/CSS/JavaScript ES modules). Sirva a pasta por HTTP; `tests.html` executa as verificações de integridade do núcleo genealógico.
+
+## Publicação
+Compatível com GitHub Pages. A publicação deve apontar para a branch que for escolhida como versão estável.
