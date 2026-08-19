@@ -5,5 +5,5 @@ export function computeBounds(nodes,ids=[...nodes.keys()]){const boxes=ids.map(i
 export function sideAnchors(a,b){const left=a.left<=b.left?a:b,right=a.left<=b.left?b:a;return{left:{x:left.left+left.width/2,y:left.top},right:{x:right.left-right.width/2,y:right.top},midpoint:{x:(left.left+right.left)/2,y:(left.top+right.top)/2}}}
 export function bottomAnchor(box){return{x:box.left,y:box.top+box.height/2}}
 export function topAnchor(box){return{x:box.left,y:box.top-box.height/2}}
-export function interpretWheel({deltaX=0,deltaY=0,ctrlKey=false,metaKey=false}){if(ctrlKey||metaKey)return{type:'zoom',factor:Math.exp(-deltaY*.004)};return{type:'pan',dx:-deltaX,dy:-deltaY}}
+export function interpretWheel({deltaX=0,deltaY=0,ctrlKey=false,metaKey=false}){if(ctrlKey||metaKey){const raw=Math.exp(-deltaY*.004);return{type:'zoom',factor:Math.max(.92,Math.min(1.08,raw))}}return{type:'pan',dx:-deltaX,dy:-deltaY}}
 export function isClickGesture({startX,startY,endX,endY},threshold=5){return Math.hypot(endX-startX,endY-startY)<=threshold}
