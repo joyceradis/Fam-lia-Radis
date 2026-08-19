@@ -2,27 +2,29 @@
 
 Genealogia interativa da Família Radis: árvore, memória familiar, saúde e evidências no mesmo arquivo.
 
-## V2
-- árvore navegável com zoom e pan;
+## Estado atual
+- árvore genealógica navegável;
 - ficha individual editável;
 - nascimento e óbito;
 - condições e histórico de saúde;
-- fontes/documentos e memórias;
-- quatro estados de evidência: **confirmado**, **relato familiar**, **documentado**, **a investigar**;
+- fontes, documentos e memórias;
+- estados de evidência: **confirmado**, **relato familiar**, **documentado**, **a investigar**;
 - busca por nome, apelido, condição ou estado;
 - inclusão rápida de pessoas;
-- backup JSON versionado e importação posterior;
+- backup JSON e importação;
 - persistência local no navegador;
-- layout responsivo para Mac e celular.
+- layout responsivo para desktop e celular.
 
 ## Regra de ouro dos dados
-`family-data.js` guarda o núcleo reconstruído. Relações antigas não demonstradas permanecem explicitamente **a investigar**. O sistema não completa lacunas por inferência.
+`family-data.js` é a fonte canônica do núcleo genealógico reconstruído. Relações não demonstradas permanecem explicitamente **a investigar**. O sistema não completa lacunas por inferência.
+
+A aplicação deve manter uma única fonte de verdade para a topologia e o posicionamento da árvore; implementações antigas ou paralelas de layout não devem permanecer no repositório.
 
 ## Backup
-Use **Backup** para baixar o snapshot completo. Em outro navegador/dispositivo, use **Importar** para restaurá-lo. O navegador mantém alterações localmente até a exportação.
+Use **Backup** para baixar o snapshot completo. Em outro navegador/dispositivo, use **Importar** para restaurá-lo. Alterações locais permanecem no navegador até a exportação.
 
 ## Desenvolvimento
-A aplicação é estática (HTML/CSS/JavaScript ES modules). Sirva a pasta por HTTP; `tests.html` executa as verificações de integridade do núcleo genealógico.
+Aplicação estática em HTML/CSS/JavaScript ES modules. `tests.html` contém as verificações de integridade genealógica e regressão disponíveis no próprio projeto.
 
 ## Publicação
-Compatível com GitHub Pages. A publicação deve apontar para a branch que for escolhida como versão estável.
+A versão pública é servida pelo GitHub Pages a partir da branch estável configurada no repositório.
