@@ -1,35 +1,20 @@
 export const EVIDENCE=['confirmed','family-report','documented','investigate'];
+const p=(id,name,sex,generation,notes='',extra={})=>({id,name,sex,branch:'Radis',generation,evidenceStatus:'family-report',tags:[],conditions:[],sources:[],notes,...extra});
 export const people=[
-{id:'joyce',name:'Joyce Radis',sex:'F',branch:'Radis',generation:'Filhos',evidenceStatus:'confirmed',tags:['família Radis'],conditions:[],sources:[],notes:'Pessoa focal da árvore.'},
-{id:'estevao',name:'Estevão',sex:'M',branch:'Radis',generation:'Filhos',evidenceStatus:'confirmed',tags:[],conditions:[],sources:[],notes:'Irmão de Joyce.'},
-{id:'arthur',name:'Arthur',sex:'M',branch:'Radis',generation:'Filhos',evidenceStatus:'confirmed',tags:[],conditions:[],sources:[],notes:'Irmão de Joyce.'},
-{id:'ritheli',name:'Ritheli',sex:'F',branch:'Radis',generation:'Pais',evidenceStatus:'confirmed',tags:[],conditions:[],sources:[],notes:'Mãe de Joyce, Estevão e Arthur; filha de Terezinha.'},
-{id:'elielton',name:'Elielton',sex:'M',branch:'Radis',generation:'Pais',evidenceStatus:'confirmed',tags:[],conditions:[],sources:[],notes:'Pai de Joyce, Estevão e Arthur; filho de Zeli.'},
-{id:'sheila',name:'Sheila',sex:'F',branch:'Radis',generation:'Tios',evidenceStatus:'confirmed',tags:[],conditions:[],sources:[],notes:'Irmã de Ritheli; casada com Elenilton.'},
-{id:'elenilton',name:'Elenilton',sex:'M',branch:'Radis',generation:'Tios',evidenceStatus:'confirmed',tags:[],conditions:[],sources:[],notes:'Irmão de Elielton; casado com Sheila.'},
-{id:'manoel-tio',name:'Manoel Radis',alias:'Tio Manoel',sex:'M',branch:'Radis',generation:'Tios-avós',evidenceStatus:'family-report',tags:['filho de Arlinda e Manoel'],conditions:[],sources:[],notes:'Um dos muitos filhos de Arlinda Radis e Manoel Radis. Homônimo do pai.'},
-{id:'zeli',name:'Zeli Radis',sex:'F',branch:'Radis',generation:'Avós',evidenceStatus:'family-report',tags:[],conditions:[],sources:[],notes:'Mãe de Elielton e Elenilton; filha de América Radis.'},
-{id:'terezinha',name:'Terezinha',sex:'F',branch:'Radis',generation:'Avós',evidenceStatus:'family-report',tags:[],conditions:[],sources:[],notes:'Filha de Arlinda e Manoel Radis; mãe de Sheila e Ritheli.'},
-{id:'america',name:'América Radis',alias:'Merca',sex:'F',branch:'Radis',generation:'Bisavós',evidenceStatus:'family-report',tags:[],conditions:[],sources:[],notes:'Irmã de Arlinda; mãe de Zeli.'},
-{id:'arlinda',name:'Arlinda Radis',alias:'Vó Arlinda',sex:'F',branch:'Radis',generation:'Bisavós',evidenceStatus:'confirmed',tags:[],conditions:[],sources:[],notes:'Irmã de América; casada com Manoel Radis; tiveram muitos filhos, entre eles Terezinha e Manoel.'},
-{id:'manoel-avo',name:'Manoel Radis',alias:'Vô Manoel',sex:'M',branch:'Radis',generation:'Bisavós',evidenceStatus:'confirmed',tags:[],conditions:[],sources:[],notes:'Casado com Arlinda Radis; tiveram muitos filhos, entre eles Terezinha e Manoel.'},
-{id:'pedro',name:'Pedro',sex:'M',branch:'Radis',generation:'Ancestrais',evidenceStatus:'investigate',tags:['Itália?','a confirmar'],conditions:[],sources:[],notes:'Possivelmente ligado à geração que veio da Itália; não conectar até confirmação.'},
-{id:'carlos',name:'Carlos Radis',sex:'M',branch:'Radis',generation:'Ancestrais',evidenceStatus:'investigate',tags:['a confirmar'],conditions:[],sources:[],notes:'Vínculo exato ainda não confirmado.'},
-{id:'maria',name:'Maria Bertosse',sex:'F',branch:'Radis',generation:'Ancestrais',evidenceStatus:'investigate',tags:['grafia a confirmar'],conditions:[],sources:[],notes:'Sobrenome/grafia e vínculo exato ainda precisam de confirmação.'}
-];
+p('joyce','Joyce Radis','F','Filhos','Pessoa focal da árvore.',{evidenceStatus:'confirmed'}),p('estevao','Estevão','M','Filhos','Irmão de Joyce.',{evidenceStatus:'confirmed'}),p('arthur','Arthur','M','Filhos','Irmão de Joyce.',{evidenceStatus:'confirmed'}),
+p('gabi','Gabi','F','Filhos','Filha de Sheila e Elenilton.'),p('samuel','Samuel','M','Filhos','Filho de Sheila e Elenilton.'),
+p('ritheli','Ritheli','F','Pais','Filha de Terezinha e José; casada com Elielton.',{evidenceStatus:'confirmed'}),p('sheila','Sheila','F','Tios','Filha de Terezinha e José; casada com Elenilton.',{evidenceStatus:'confirmed'}),p('elielton','Elielton','M','Pais','Filho de Zeli e Sebastião; casado com Ritheli.',{evidenceStatus:'confirmed'}),p('elenilton','Elenilton','M','Tios','Filho de Zeli e Sebastião; casado com Sheila.',{evidenceStatus:'confirmed'}),p('elenice','Elenice','F','Tios','Filha de Zeli e Sebastião.'),p('welington','Welington','M','Tios','Filho de Zeli e Sebastião.'),
+p('zeli','Zeli Radis','F','Avós','Filha de Merca e Pedro; casada com Sebastião.'),p('sebastiao','Sebastião','M','Avós','Casado com Zeli.'),p('terezinha','Terezinha','F','Avós','Filha de Arlinda e Manoel. Primeiro casamento com José; depois casou-se com Brás.'),p('jose','José','M','Avós','Primeiro marido de Terezinha; pai de Ritheli e Sheila.',{deceased:true}),p('bras','Brás','M','Avós','Segundo marido de Terezinha; pai de Brazin, Fabiana e Renata.'),p('brazin','Brazin','M','Tios','Filho de Terezinha e Brás.'),p('fabiana','Fabiana','F','Tios','Filha de Terezinha e Brás.'),p('renata','Renata','F','Tios','Filha de Terezinha e Brás.'),
+p('america','América Radis','F','Bisavós','Conhecida como Merca. Irmã de Arlinda; casada com Pedro; teve vários filhos, entre eles Zeli.',{alias:'Merca',deceased:true}),p('pedro','Pedro','M','Bisavós','Irmão de Manoel; casado com Merca; tiveram vários filhos, entre eles Zeli.',{deceased:true}),p('arlinda','Arlinda Radis','F','Bisavós','Irmã de Merca; casada com Manoel; tiveram vários filhos, entre eles Terezinha e Manoel.',{alias:'Vó Arlinda',deceased:true,evidenceStatus:'confirmed'}),p('manoel-avo','Manoel Radis','M','Bisavós','Irmão de Pedro; casado com Arlinda; tiveram vários filhos.',{alias:'Vô Manoel',deceased:true,evidenceStatus:'confirmed'}),p('manoel-tio','Manoel Radis','M','Tios-avós','Filho de Arlinda e Manoel; homônimo do pai.',{alias:'Tio Manoel'}),
+p('carlos','Carlos Radis','M','Ancestrais','Vínculo exato ainda não confirmado.',{evidenceStatus:'investigate',tags:['a confirmar']}),p('maria','Maria Bertosse','F','Ancestrais','Grafia e vínculo exato ainda precisam de confirmação.',{evidenceStatus:'investigate',tags:['grafia a confirmar']})];
 export const relations=[
-{type:'sibling',from:'america',to:'arlinda'},
-{type:'partner',from:'arlinda',to:'manoel-avo'},
-{type:'parent',from:'america',to:'zeli'},
-{type:'parent',from:'arlinda',to:'terezinha'},{type:'parent',from:'manoel-avo',to:'terezinha'},
-{type:'parent',from:'arlinda',to:'manoel-tio'},{type:'parent',from:'manoel-avo',to:'manoel-tio'},
-{type:'parent',from:'terezinha',to:'sheila'},{type:'parent',from:'terezinha',to:'ritheli'},
-{type:'parent',from:'zeli',to:'elielton'},{type:'parent',from:'zeli',to:'elenilton'},
-{type:'partner',from:'sheila',to:'elenilton'},
-{type:'partner',from:'ritheli',to:'elielton',consanguineous:true},
-{type:'parent',from:'ritheli',to:'joyce'},{type:'parent',from:'elielton',to:'joyce'},
-{type:'parent',from:'ritheli',to:'estevao'},{type:'parent',from:'elielton',to:'estevao'},
-{type:'parent',from:'ritheli',to:'arthur'},{type:'parent',from:'elielton',to:'arthur'}
-];
+{type:'sibling',from:'america',to:'arlinda'},{type:'sibling',from:'pedro',to:'manoel-avo'},
+{type:'partner',from:'pedro',to:'america'},{type:'partner',from:'manoel-avo',to:'arlinda'},
+{type:'parent',from:'pedro',to:'zeli'},{type:'parent',from:'america',to:'zeli'},
+{type:'parent',from:'manoel-avo',to:'terezinha'},{type:'parent',from:'arlinda',to:'terezinha'},{type:'parent',from:'manoel-avo',to:'manoel-tio'},{type:'parent',from:'arlinda',to:'manoel-tio'},
+{type:'partner',from:'zeli',to:'sebastiao'},...['elielton','elenilton','elenice','welington'].flatMap(to=>[{type:'parent',from:'zeli',to},{type:'parent',from:'sebastiao',to}]),
+{type:'partner',from:'jose',to:'terezinha'},{type:'partner',from:'terezinha',to:'bras'},...['ritheli','sheila'].flatMap(to=>[{type:'parent',from:'terezinha',to},{type:'parent',from:'jose',to}]),...['brazin','fabiana','renata'].flatMap(to=>[{type:'parent',from:'terezinha',to},{type:'parent',from:'bras',to}]),
+{type:'partner',from:'ritheli',to:'elielton'},...['joyce','estevao','arthur'].flatMap(to=>[{type:'parent',from:'ritheli',to},{type:'parent',from:'elielton',to}]),
+{type:'partner',from:'sheila',to:'elenilton'},...['gabi','samuel'].flatMap(to=>[{type:'parent',from:'sheila',to},{type:'parent',from:'elenilton',to}])];
 export const personById=(id,list=people)=>list.find(p=>p.id===id);
 export function validateData(list=people,rels=relations){const errors=[];const ids=new Set(list.map(p=>p.id));if(ids.size!==list.length)errors.push('IDs duplicados');for(const p of list)if(!EVIDENCE.includes(p.evidenceStatus||'family-report'))errors.push(`Evidência inválida: ${p.id}`);for(const r of rels)if(!ids.has(r.from)||!ids.has(r.to))errors.push(`Relação inválida: ${r.from} → ${r.to}`);return errors}
