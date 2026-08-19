@@ -35,3 +35,5 @@ Use **Backup** para baixar o snapshot completo. Em outro navegador/dispositivo, 
 
 ## Publicação
 A versão pública é servida pelo GitHub Pages a partir da branch estável configurada no repositório.
+
+<!-- final-verification-trigger -->
