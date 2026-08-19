@@ -18,13 +18,20 @@ Genealogia interativa da Família Radis: árvore, memória familiar, saúde e ev
 ## Regra de ouro dos dados
 `family-data.js` é a fonte canônica do núcleo genealógico reconstruído. Relações não demonstradas permanecem explicitamente **a investigar**. O sistema não completa lacunas por inferência.
 
-A aplicação deve manter uma única fonte de verdade para a topologia e o posicionamento da árvore; implementações antigas ou paralelas de layout não devem permanecer no repositório.
+O renderer usa `pedigree-core.js` para agrupar uniões, descendência, limites do grafo e regras de interação. As linhas são calculadas a partir dos nós renderizados, e não por coordenadas independentes.
+
+## Navegação
+- arrastar: move a árvore;
+- scroll/gesto de dois dedos: desloca a árvore sem alterar o zoom;
+- pinça/gesto de zoom do trackpad: amplia ou reduz mantendo o ponto sob o cursor;
+- clique curto em uma pessoa: abre o dossiê;
+- **Enquadrar**: calcula o enquadramento pelo conteúdo genealógico conectado.
 
 ## Backup
 Use **Backup** para baixar o snapshot completo. Em outro navegador/dispositivo, use **Importar** para restaurá-lo. Alterações locais permanecem no navegador até a exportação.
 
-## Desenvolvimento
-Aplicação estática em HTML/CSS/JavaScript ES modules. `tests.html` contém as verificações de integridade genealógica e regressão disponíveis no próprio projeto.
+## Verificação
+`node tests.mjs` valida a âncora genealógica, uniões, descendência, nós em pesquisa e regras de pan/zoom/clique. O workflow `Verify Family Archive` também executa `node --check` em todos os módulos principais a cada push e pull request.
 
 ## Publicação
 A versão pública é servida pelo GitHub Pages a partir da branch estável configurada no repositório.
